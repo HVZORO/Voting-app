@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: voting-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: YOUR_DOCKERHUB_USER/voting-app-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_HOST
+          value: mysql
+        - name: DB_USER
+          value: voting_user
+        - name: DB_PASSWORD
+          value: vote_pass
+        - name: DB_NAME
+          value: voting_app
