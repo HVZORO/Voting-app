@@ -1,0 +1,4 @@
+source:
+  repoURL: https://github.com/HVZORO/Voting-app.git
+  targetRevision: main
+  path: k8s
